@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toy Car</title>
+    <link rel="icon" href="mashinka.jpg">
+    <style>
+        /* --- ОБЩИЕ СТИЛИ --- */
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #111; /* Темный фон для текста aliceblue */
+            font-family: sans-serif;
+            overflow-x: hidden; /* Скрываем скролл во время анимации карточек */
+        }
+
+        /* Кнопка переходов */
+        .btn {
+            display: inline-block;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            padding: 12px 30px;
+            font-size: 18px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        /* --- СТИЛИ ПЕРВОЙ СТРАНИЦЫ --- */
+        header {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .box {
+            background:#efefef;
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            text-align: left;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .box img {
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        /* --- СТИЛИ ВТОРОЙ СТРАНИЦЫ (МАТЕРИАЛЫ) --- */
+        #materials-page {
+            display: none; /* Изначально вторая страница скрыта */
+            max-width: 1900px;
+            margin: 0 auto;
+        }
+
+        .boxx, .boxxx, .container {
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            background: white;
+            color: #111;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            
+            /* Начальное положение: скрыты и за экраном справа */
+            opacity: 0;
+            transform: translateX(100vw);
+        }
+
+        /* Классы анимаций, которые включатся при переходе */
+        .animate .animate-card-1 {
+            animation: slideLeft 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            animation-delay: 0.2s;
+        }
+
+        .animate .animate-card-2 {
+            animation: slideLeft 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            animation-delay: 0.7s;
+        }
+
+        .animate .animate-card-3 {
+            animation: slideLeft 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            animation-delay: 1.2s;
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .back-btn {
+            opacity: 0;
+        }
+
+        .animate .back-btn {
+            animation: fadeIn 0.5s ease forwards;
+            animation-delay: 1.7s;
+        }
+
+        /* Анимации */
+        @keyframes slideLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0); /* Карточки встают на место */
+            }
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="main-page">
+        <div class="box">
+            <img src="mashina.jpg" alt="" style="height:500px;" width="400px" class="img">
+            <p style="font-size:20px; color:#000000;">Перед нами маленькая машинка, созданная специально для детей. Она выглядит ярко и привлекательно, сразу привлекает внимание своим простым и понятным дизайном.
+            <br><br>
+            Эта игрушка легко катится по поверхности, колёса плавно вращаются, создавая ощущение настоящего движения. Машинка компактная, удобная для игры дома или на улице, и отлично подходит для детских рук.
+            <br><br>
+            Таким образом, мы видим обычную детскую машинку — простую, но интересную игрушку, которая дарит радость и помогает ребёнку развивать воображение и навыки игры.</p>
+        </div>
+
+        <p style="font-size:30px; color: aliceblue;">Если хотите узнать материалы — нажмите на кнопку!</p>
+
+        <button class="btn" onclick="showMaterials()">Материалы</button>
+    </header>
+
+
+    <div id="materials-page">
+        <div class="full">
+            <div class="boxx animate-card-1">
+                <img src="plastic.jpg" alt="" style="height:200px;" width="200px" class="imgg">
+                <p style="padding-left:10px;"><b>Первый ингредиент — это пластик.</b> Он используется для создания корпуса игрушки, делает её лёгкой и удобной для ребёнка.</p>
+                <p style="padding-left: 120px;">Пластик — это искусственный материал, который люди придумали сами. Его делают на заводах из специальных веществ. Он твёрдый, но может быть гибким, лёгкий и не боится воды. Поэтому из пластика часто делают игрушки, бутылки, коробки и множество других вещей, которые мы используем каждый день.</p>
+            </div>
+            
+            <div class="boxxx animate-card-2">
+               <img src="tirol.webp" alt="" class="imggg" style="height:200px;" width="200px">
+               <p style="padding-left:10px; padding-bottom:11px;"><b>Второй ингредиент — это резина.</b> Она используется для колёс игрушечной машинки, чтобы они могли мягко катиться и не скользить.</p>
+               <p style="padding-left:10px; padding-bottom:10px;">Резина — это материал, который может растягиваться и снова возвращаться в свою форму. Она упругая, мягкая и прочная. Из резины делают шины, мячики, перчатки и многие другие вещи, которые мы используем каждый день.
+               <br><br>
+               Таким образом, резина помогает игрушке быть удобной и более похожей на настоящую машину.</p>
+            </div>
+           
+            <div class="container animate-card-3">
+                <img src="metalo.webp" alt="" style="height:200px; width:200px;" class="imj">
+                <p style="padding: 10px;"><b>Последний ингредиент — это металл.</b> Он используется для прочности и надёжности, чтобы игрушка могла выдерживать нагрузки и служить дольше.</p>
+                <p style="padding-bottom: 24px; padding-left: 15px;">Металл — это твёрдый и прочный материал, который встречается в природе. Его добывают из земли, а потом обрабатывают на заводах. Металл блестит, хорошо проводит тепло и электричество, и из него делают множество вещей: от ложек и ножей до машин и зданий.
+                <br><br>
+                Таким образом, металл — это основа для прочных предметов, которые мы используем каждый день.</p>
+            </div>
+        </div>
+       
+        <div class="btn-container">
+            <button class="btn back-btn" onclick="showMain()">Вернуться назад</button>
+        </div>
+    </div>
+
+    <script>
+        const mainPage = document.getElementById('main-page');
+        const materialsPage = document.getElementById('materials-page');
+
+        function showMaterials() {
+            mainPage.style.display = 'none'; // Прячем главную
+            materialsPage.style.display = 'block'; // Показываем материалы
+            setTimeout(() => {
+                materialsPage.classList.add('animate'); // Запускаем анимацию вылета
+            }, 10);
+        }
+
+        function showMain() {
+            materialsPage.classList.remove('animate'); // Сбрасываем анимацию
+            materialsPage.style.display = 'none'; // Прячем материалы
+            mainPage.style.display = 'block'; // Показываем главную
+        }
+    </script>
+
+</body>
+</html>
